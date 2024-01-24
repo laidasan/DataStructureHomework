@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="core/style/reset.css">
+  </link>
+  <link rel="stylesheet" href="core/style/main.css">
+  </link>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/ramda/0.29.1/ramda.min.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <div class="container">
+      <div class="game">
+        <div class="role role--enemy">
+          <div class="role__name">敵方</div>
+        </div>
+
+        <div class="game__main-stage">
+          <div class="game__stage game__stage--enemy">
+            <div id="enemyStage" class="stage enemy-stage">石頭</div>
+          </div>
+          <div class="game__stage game__stage--our">
+            <div id="ourStage" class="stage our-stage">剪刀</div>
+            <div class="options options--our">
+              <button id="ourRock" class="option option--rock">石頭</button>
+              <button id="ourPaper" class="option option--paper">布</button>
+              <button id="ourScissors" class="option option--scissors">剪刀</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="role role--our">
+          <div class="role__name">我方</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="main.js"></script>
+</body>
+
+</html>

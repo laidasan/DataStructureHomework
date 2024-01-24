@@ -1,0 +1,97 @@
+/* variable */
+:root {
+  --fhd: calc(1920/1080);
+  --color-black: rgb(60, 60, 60);
+  --color-white: #fff;
+}
+
+/* layout */
+html {
+  height: 100%;
+  background-color: var(--color-black);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.container {
+  width: 300px;
+  height: calc(300px * var(--fhd));
+  box-shadow: 0 0 0 1px var(--color-white);
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: var(--color-white);
+}
+
+.game__main-stage {
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.game__stage {
+  flex-grow: 1;
+  flex-shrink: 0;
+
+  position: relative;
+  text-align: center;
+}
+
+.game__stage--enemy {
+
+}
+
+.game__stage--our {
+
+}
+
+
+/* stage */
+.stage {
+  position: absolute;
+  width: 100%;
+}
+
+.enemy-stage {
+  top: 60px;
+}
+
+.our-stage {
+  bottom: 60px;
+}
+
+.options--our {
+  position: absolute;
+  width: 100%;
+  bottom: 15px;
+}
+
+/* role */
+.role {
+  flex-shrink: 0;
+}
+
+.role__name {
+  text-align: center;
+}
+
+.role--enemy .role__name {
+
+}
+
+.role__our {
+
+}
+
+.role--our .role__name {
+
+}
