@@ -20,7 +20,8 @@ body {
 
 .container {
   width: 300px;
-  height: calc(300px * var(--fhd));
+  height: 450px;
+  /* height: calc(300px * var(--fhd)); */
   box-shadow: 0 0 0 1px var(--color-white);
 }
 
