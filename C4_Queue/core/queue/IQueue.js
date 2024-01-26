@@ -61,4 +61,13 @@ export class IQueue {
   clear() {
     throw new Error('Method not implemented.');
   }
+
+  /**
+   * @abstract
+   * @function forEach
+   * @param {Function} callback
+   */
+  forEach(callback) {
+    throw new Error('Method not implemented.');
+  }
 }

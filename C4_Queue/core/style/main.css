@@ -21,8 +21,9 @@ body {
 .container {
   width: 300px;
   height: 450px;
-  /* height: calc(300px * var(--fhd)); */
+  overflow-y: auto;
   box-shadow: 0 0 0 1px var(--color-white);
+  border-radius: 4px;
 }
 
 .game {
@@ -74,6 +75,12 @@ body {
   position: absolute;
   width: 100%;
   bottom: 15px;
+}
+
+/* task */
+.task {
+  color: var(--color-white);
+  font-size: 16px;
 }
 
 /* role */
