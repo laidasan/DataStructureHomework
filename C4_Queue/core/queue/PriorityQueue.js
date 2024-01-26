@@ -1,7 +1,7 @@
 import { IQueue } from './IQueue.js';
 import { QueueActions } from './QueueActions.js';
 
-const { isNil, isEmpty, head, tail, insert, length, empty } = window.R
+const { isNil, isEmpty, head, tail, insert, length, empty, forEach: RamdaForEach } = window.R
 
 
 /**
@@ -137,5 +137,15 @@ export class PriorityQueue extends IQueue {
     if(!isNil(this.observer)) {
       this.observer.onQueueUpdated(this, action)
     }
+  }
+
+  /**
+   * @argument IQueue.forEach
+   * @function forEach
+   * @param {Function} callback
+   * @returns {undefined}
+   */
+  forEach(callback) {
+    RamdaForEach(callback, this.items)
   }
 }

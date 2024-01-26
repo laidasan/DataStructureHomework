@@ -7,6 +7,7 @@ import { QueueActions } from "./queue/QueueActions.js";
  * @classdesc
  */
 export class Game extends IQueueObserver {
+  viewContainer = null;
   _taskQueue = null
   _isRunningQueue = false
   _isStarted = false;
@@ -16,10 +17,12 @@ export class Game extends IQueueObserver {
    * @constructor
    * @param {Object} payload
    * @param {PriorityQueue} taskQueues [PriorityQueue]{@link core.queue.PriorityQueue}
+   * @param {HTMLElement} viewContainer
    */
-  constructor(taskQueues) {
+  constructor(taskQueues, viewContainer) {
     super()
     this._taskQueue = taskQueues;
+    this.viewContainer = viewContainer;
   }
 
   get taskQueue() {
@@ -109,6 +112,21 @@ export class Game extends IQueueObserver {
   }
 
   /**
+   * @public
+   * @function renderView
+   * @description render the view
+   */
+  renderView() {
+    this.viewContainer.innerHTML = '';
+    this._taskQueue.forEach(function (task) {
+      const div = document.createElement('div');
+      div.className = 'task';
+      div.innerHTML = `${task.name}: ${task.priority}、${task.delay}`
+      this.viewContainer.appendChild(div)
+    }.bind(this))
+  }
+
+  /**
    * @argument IQueueObserver.onQueueUpdated
    * @public
    * @function onQueueUpdated
@@ -116,6 +134,7 @@ export class Game extends IQueueObserver {
    * @param {QueueActions} action [QueueActions]{@link core.queue.QueueActions}
    */
   onQueueUpdated(queue, action) {
+    this.renderView();
     if (action === QueueActions.Enqueue) {
       this._runQueue()
     }

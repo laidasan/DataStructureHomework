@@ -5,24 +5,31 @@ import { ScissorsTask } from "./core/task/ScissorsTask.js";
 import { LoggerDecorator } from "./core/task/PromiseTask/LoggerDecorator.js";
 import { Game } from "./core/Game.js";
 
+const container = document.querySelector('#container');
 const taskQueue = new PriorityQueue();
 taskQueue.enqueue(new LoggerDecorator({
-  task: new HistTask(),
+  task: new HistTask({ delay: 300 }),
   logger: console
 }));
 taskQueue.enqueue(new LoggerDecorator({
-  task: new PaperTask(),
+  task: new PaperTask({ delay: 900 }),
   logger: console
 }));
 taskQueue.enqueue(new LoggerDecorator({
-  task: new ScissorsTask(),
+  task: new ScissorsTask({ delay: 1200 }),
   logger: console
 }));
 
-const game = new Game(taskQueue);
+const game = new Game(taskQueue, container);
+game.renderView()
 
-game.start();
 taskQueue.registerObserver(game)
+
+
+setTimeout(() => {
+  game.start();
+}, 1000)
+
 
 
 
@@ -39,4 +46,4 @@ setTimeout(() => {
     task: new ScissorsTask({ delay: 1000}),
     logger: console
   }));
-}, 1000);
+}, 2000);
